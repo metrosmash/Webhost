@@ -8,6 +8,28 @@
     </head>
     
     <div class="box2">
+    <section>
+      <input id="name" placeholder="Your name">
+      <button id="greet">Say hello</button>
+      <p id="output"></p>
+    </section>
+    <script type="module">
+      import {greet} from "../js/api.js";
+
+      const input = document.getElementById("name");
+      const output = document.getElementById("output");
+
+      document.getElementById("greet").addEventListener("click", async () => {
+        output.textContent = "Loading...";
+        try {
+          const data = await greet(input.value || "visitor");
+          output.textContent = data.message;
+        } catch (err) {
+          output.textContent = "Something went wrong.";
+          console.error(err);
+        }
+      });
+    </script>
     <body>
      
      
