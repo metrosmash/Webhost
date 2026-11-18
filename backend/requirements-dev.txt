@@ -1,4 +1,3 @@
-fastapi
-uvicorn
-dotenv
+-r requirements.txt
 pytest
+httpx
